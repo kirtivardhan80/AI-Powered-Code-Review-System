@@ -1,11 +1,48 @@
-# 🚀 Code Review API using Gemini and FastAPI
+# Gemini Code Reviewer API
 
-This project provides an API to **review code snippets** using Google's **Gemini model** via the LangChain integration. It offers:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Framework: FastAPI](https://img.shields.io/badge/Framework-FastAPI-green.svg)](https://fastapi.tiangolo.com/)
 
-- ✅ AI-powered **code review** (bugs, best practices, security issues, improvements)
-- ✅ **FastAPI endpoint** for easy integration
-- ✅ **MongoDB connection test** (optional for future enhancements)
-- ✅ **Testing scripts** for API and DB connectivity
+An intelligent, lightweight code review service powered by **FastAPI**, **Google Gemini**, and **MongoDB**. This API provides a simple yet powerful endpoint to submit code for analysis, receive AI-driven feedback, and persist review history.
+
+It serves as a perfect backend for developer tools, CI/CD pipelines, or educational platforms.
+
+---
+
+## ✨ Key Features
+
+- **AI-Powered Reviews**: Leverages the power of Google Gemini via LangChain for insightful code analysis.
+- **Asynchronous API**: Built with FastAPI and Motor for high-performance, non-blocking operations.
+- **Persistent Storage**: Seamlessly stores code submissions and their reviews in MongoDB for future reference.
+- **Simple & Scalable**: A clean, modular structure that is easy to understand, test, and extend.
+- **Ready to Deploy**: Includes clear setup, testing, and usage instructions.
+
+---
+
+## ⚙️ How It Works
+
+The application follows a simple data flow:
+
+1. **Request**: A client sends a `POST` request with a JSON payload containing the code to the `/review` endpoint.
+2. **Processing**: FastAPI receives the request and passes the code to the `reviewer` module.
+3. **AI Analysis**: The `reviewer` module invokes the Gemini model to analyze the code for bugs, style, and optimizations.
+4. **Database Storage**: The original code and the AI-generated review are saved as a new document in the MongoDB `reviews` collection.
+5. **Response**: The AI-generated review is returned to the client as a JSON response.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend**: Python 3.10+
+- **API Framework**: FastAPI
+- **AI Integration**: LangChain with `langchain-google-genai`
+- **Database**: MongoDB with `motor` (asynchronous driver)
+- **Server**: Uvicorn
+- **Environment Management**: `python-dotenv`
+
+---
+
 
 ---
 
