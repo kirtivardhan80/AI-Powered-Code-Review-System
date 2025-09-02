@@ -174,6 +174,21 @@ Example Output:
   }
 ]
 
+# 📌 API Endpoints
+
+---
+
+## 1. POST /review
+- **Function:** Reviews a given code snippet using Gemini AI.
+- **Output:** Returns a short review with suggestions.
+
+**Example Output:**
+```json
+{
+  "review": "✅ No major issues. Consider adding type hints and docstrings."
+}
+
+
 
 ---
 
