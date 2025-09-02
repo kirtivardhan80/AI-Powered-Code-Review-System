@@ -43,9 +43,6 @@ The application follows a simple data flow:
 
 ---
 
-
----
-
 ## 📂 Project Structure
 
 ```
