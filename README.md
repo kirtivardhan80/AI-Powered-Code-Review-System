@@ -120,96 +120,57 @@ http://127.0.0.1:8000
 ## 📌 API Endpoints
 
 1. POST /review
-Reviews a given code snippet using Gemini AI.
+Function: Reviews a given code snippet using Gemini AI.
+Output: Returns a short review with suggestions for improvements.
 
-Request Body (JSON):
+Example Output:
 {
-  "code": "def add(a, b): return a+b"
+  "review": "✅ No major issues. Consider adding type hints and docstrings."
 }
 
-Sample cURL:
-curl -X POST "http://127.0.0.1:8000/review" \
--H "Content-Type: application/json" \
--d '{"code": "def add(a, b): return a+b"}'
-
-Response Example:
-{
-  "review": "✅ No major issues. Consider adding type hints and docstrings for clarity."
-}
+---
 
 2. GET /reviews
-Fetch all reviews (supports optional limit query parameter).
+Function: Fetches all code reviews (can limit the number returned).
+Output: Returns a list of reviews with code, detected language, and suggestions.
 
-Query Parameters:
-limit (integer, optional, default=100): Number of reviews to return
-
-Sample cURL:
-curl -X GET "http://127.0.0.1:8000/reviews?limit=50"
-
-Response Example:
+Example Output:
 [
   {
     "_id": "64f8b7a3e8f6b5aadab75d2d",
     "code": "def add(a, b): return a+b",
     "language_detected": "Python",
-    "issues": [],
-    "suggestions": ["Add type hints", "Add docstrings"],
-    "improved_code": "def add(a: int, b: int) -> int: return a+b",
-    "details": {
-      "pygments": {"language": "Python", "confidence": 0.8},
-      "gemini": {"language": "Python", "confidence": 0.9}
-    }
+    "suggestions": ["Add type hints", "Add docstrings"]
   }
 ]
 
+---
+
 3. GET /reviews/{review_id}
-Fetch a single review by its _id.
+Function: Fetches a single review by its ID.
+Output: Returns the code, language, and suggestions for that specific review.
 
-Path Parameter:
-review_id (string, required): The MongoDB ObjectId of the review
-
-Sample cURL:
-curl -X GET "http://127.0.0.1:8000/reviews/64f8b7a3e8f6b5aadab75d2d"
-
-Response Example:
+Example Output:
 {
   "_id": "64f8b7a3e8f6b5aadab75d2d",
   "code": "def add(a, b): return a+b",
   "language_detected": "Python",
-  "issues": [],
-  "suggestions": ["Add type hints", "Add docstrings"],
-  "improved_code": "def add(a: int, b: int) -> int: return a+b",
-  "details": {
-    "pygments": {"language": "Python", "confidence": 0.8},
-    "gemini": {"language": "Python", "confidence": 0.9}
-  }
+  "suggestions": ["Add type hints", "Add docstrings"]
 }
 
+---
+
 4. GET /reviews/by-language/{language}
-Fetch reviews filtered by detected programming language.
+Function: Fetches all reviews filtered by a specific programming language.
+Output: Returns a list of reviews for that language with code and suggestions.
 
-Path Parameter:
-language (string, required): Language to filter reviews by (e.g., Python, JavaScript)
-
-Query Parameters:
-limit (integer, optional, default=100): Maximum number of reviews to return
-
-Sample cURL:
-curl -X GET "http://127.0.0.1:8000/reviews/by-language/Python?limit=10"
-
-Response Example:
+Example Output:
 [
   {
     "_id": "64f8b7a3e8f6b5aadab75d2d",
     "code": "def add(a, b): return a+b",
     "language_detected": "Python",
-    "issues": [],
-    "suggestions": ["Add type hints", "Add docstrings"],
-    "improved_code": "def add(a: int, b: int) -> int: return a+b",
-    "details": {
-      "pygments": {"language": "Python", "confidence": 0.8},
-      "gemini": {"language": "Python", "confidence": 0.9}
-    }
+    "suggestions": ["Add type hints", "Add docstrings"]
   }
 ]
 
