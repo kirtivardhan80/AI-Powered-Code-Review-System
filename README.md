@@ -117,7 +117,7 @@ http://127.0.0.1:8000
 
 ---
 
-##📌 API Endpoints
+## 📌 API Endpoints
 
 1. POST /review
 Reviews a given code snippet using Gemini AI.
