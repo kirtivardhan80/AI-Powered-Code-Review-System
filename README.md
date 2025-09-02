@@ -119,22 +119,25 @@ http://127.0.0.1:8000
 
 ## 📌 API Endpoints
 
-1. POST /review
-Function: Reviews a given code snippet using Gemini AI.
-Output: Returns a short review with suggestions for improvements.
+## 1. POST /review
+- **Function:** Reviews a given code snippet using Gemini AI.
+- **Output:** Returns a short review with suggestions for improvements.
 
-Example Output:
+**Example Output:**
+```json
 {
   "review": "✅ No major issues. Consider adding type hints and docstrings."
 }
 
 ---
 
-2. GET /reviews
-Function: Fetches all code reviews (can limit the number returned).
-Output: Returns a list of reviews with code, detected language, and suggestions.
+## 2. GET /reviews
+- **Function:** Fetches all code reviews (can limit the number returned).
+- **Output:** Returns a list of reviews with code, detected language, and suggestions.
 
-Example Output:
+
+**Example Output:**
+```json
 [
   {
     "_id": "64f8b7a3e8f6b5aadab75d2d",
@@ -146,11 +149,13 @@ Example Output:
 
 ---
 
-3. GET /reviews/{review_id}
-Function: Fetches a single review by its ID.
-Output: Returns the code, language, and suggestions for that specific review.
+## 3. GET /reviews/{review_id}
+- **Function:** Fetches a single review by its ID.
+- **Output:** Returns the code, language, and suggestions for that specific review.
 
-Example Output:
+
+**Example Output:**
+```json
 {
   "_id": "64f8b7a3e8f6b5aadab75d2d",
   "code": "def add(a, b): return a+b",
@@ -160,10 +165,13 @@ Example Output:
 
 ---
 
-4. GET /reviews/by-language/{language}
-Function: Fetches all reviews filtered by a specific programming language.
-Output: Returns a list of reviews for that language with code and suggestions.
+## 4.  GET /reviews/by-language/{language}
+- **Function:** Fetches all reviews filtered by a specific programming language.
+- **Output:** Returns a list of reviews for that language with code and suggestions.
 
+
+**Example Output:**
+```json
 Example Output:
 [
   {
@@ -174,22 +182,7 @@ Example Output:
   }
 ]
 
-# 📌 API Endpoints
-
 ---
-
-## 1. POST /review
-- **Function:** Reviews a given code snippet using Gemini AI.
-- **Output:** Returns a short review with suggestions.
-
-**Example Output:**
-```json
-{
-  "review": "✅ No major issues. Consider adding type hints and docstrings."
-}
-
-
-
 ---
 
 ## ✅ Testing the API
