@@ -135,7 +135,6 @@ http://127.0.0.1:8000
 - **Function:** Fetches all code reviews (can limit the number returned).
 - **Output:** Returns a list of reviews with code, detected language, and suggestions.
 
-
 **Example Output:**
 ```json
 [
@@ -181,8 +180,8 @@ Example Output:
     "suggestions": ["Add type hints", "Add docstrings"]
   }
 ]
-
 ---
+
 ---
 
 ## ✅ Testing the API
