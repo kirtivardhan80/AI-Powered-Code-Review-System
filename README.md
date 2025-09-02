@@ -128,6 +128,58 @@ http://127.0.0.1:8000
 {
   "review": "✅ No major issues. Consider adding type hints and docstrings."
 }
+---
+
+## 2. GET /reviews
+- **Function:** Fetches all code reviews (can limit the number returned).
+- **Output:** Returns a list of reviews with code, detected language, and suggestions.
+
+**Example Output:**
+```json
+[
+  {
+    "_id": "64f8b7a3e8f6b5aadab75d2d",
+    "code": "def add(a, b): return a+b",
+    "language_detected": "Python",
+    "suggestions": ["Add type hints", "Add docstrings"]
+  }
+]
+---
+
+## 3. GET /reviews/{review_id}
+- **Function:** Fetches a single review by its ID.
+- **Output:** Returns the code, language, and suggestions for that specific review.
+
+
+**Example Output:**
+```json
+{
+  "_id": "64f8b7a3e8f6b5aadab75d2d",
+  "code": "def add(a, b): return a+b",
+  "language_detected": "Python",
+  "suggestions": ["Add type hints", "Add docstrings"]
+}
+---
+
+## 4.  GET /reviews/by-language/{language}
+- **Function:** Fetches all reviews filtered by a specific programming language.
+- **Output:** Returns a list of reviews for that language with code and suggestions.
+
+
+**Example Output:**
+```json
+Example Output:
+[
+  {
+    "_id": "64f8b7a3e8f6b5aadab75d2d",
+    "code": "def add(a, b): return a+b",
+    "language_detected": "Python",
+    "suggestions": ["Add type hints", "Add docstrings"]
+  }
+]
+---
+
+---
 
 ## ✅ Testing the API
 
