@@ -117,31 +117,102 @@ http://127.0.0.1:8000
 
 ---
 
-## 📌 API Endpoint
+##📌 API Endpoints
 
-### **POST /review**
+1. POST /review
 Reviews a given code snippet using Gemini AI.
 
-**Request Body (JSON):**
-```json
+Request Body (JSON):
 {
   "code": "def add(a, b): return a+b"
 }
-```
 
-**Sample cURL:**
-```bash
+Sample cURL:
 curl -X POST "http://127.0.0.1:8000/review" \
 -H "Content-Type: application/json" \
 -d '{"code": "def add(a, b): return a+b"}'
-```
 
-**Response Example:**
-```json
+Response Example:
 {
   "review": "✅ No major issues. Consider adding type hints and docstrings for clarity."
 }
-```
+
+2. GET /reviews
+Fetch all reviews (supports optional limit query parameter).
+
+Query Parameters:
+limit (integer, optional, default=100): Number of reviews to return
+
+Sample cURL:
+curl -X GET "http://127.0.0.1:8000/reviews?limit=50"
+
+Response Example:
+[
+  {
+    "_id": "64f8b7a3e8f6b5aadab75d2d",
+    "code": "def add(a, b): return a+b",
+    "language_detected": "Python",
+    "issues": [],
+    "suggestions": ["Add type hints", "Add docstrings"],
+    "improved_code": "def add(a: int, b: int) -> int: return a+b",
+    "details": {
+      "pygments": {"language": "Python", "confidence": 0.8},
+      "gemini": {"language": "Python", "confidence": 0.9}
+    }
+  }
+]
+
+3. GET /reviews/{review_id}
+Fetch a single review by its _id.
+
+Path Parameter:
+review_id (string, required): The MongoDB ObjectId of the review
+
+Sample cURL:
+curl -X GET "http://127.0.0.1:8000/reviews/64f8b7a3e8f6b5aadab75d2d"
+
+Response Example:
+{
+  "_id": "64f8b7a3e8f6b5aadab75d2d",
+  "code": "def add(a, b): return a+b",
+  "language_detected": "Python",
+  "issues": [],
+  "suggestions": ["Add type hints", "Add docstrings"],
+  "improved_code": "def add(a: int, b: int) -> int: return a+b",
+  "details": {
+    "pygments": {"language": "Python", "confidence": 0.8},
+    "gemini": {"language": "Python", "confidence": 0.9}
+  }
+}
+
+4. GET /reviews/by-language/{language}
+Fetch reviews filtered by detected programming language.
+
+Path Parameter:
+language (string, required): Language to filter reviews by (e.g., Python, JavaScript)
+
+Query Parameters:
+limit (integer, optional, default=100): Maximum number of reviews to return
+
+Sample cURL:
+curl -X GET "http://127.0.0.1:8000/reviews/by-language/Python?limit=10"
+
+Response Example:
+[
+  {
+    "_id": "64f8b7a3e8f6b5aadab75d2d",
+    "code": "def add(a, b): return a+b",
+    "language_detected": "Python",
+    "issues": [],
+    "suggestions": ["Add type hints", "Add docstrings"],
+    "improved_code": "def add(a: int, b: int) -> int: return a+b",
+    "details": {
+      "pygments": {"language": "Python", "confidence": 0.8},
+      "gemini": {"language": "Python", "confidence": 0.9}
+    }
+  }
+]
+
 
 ---
 
