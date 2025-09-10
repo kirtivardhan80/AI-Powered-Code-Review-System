@@ -227,7 +227,7 @@ motor
 
 ## 👨‍💻 Author
 
-**Your Name**  
-[GitHub](https://github.com/your-username) | [LinkedIn](https://linkedin.com/in/your-profile)
+**Kirti Vardhan Singh**  
+[GitHub]([https://github.com/your-username](https://github.com/kirtivardhan80)) | [LinkedIn](www.linkedin.com/in/kirti-vardhan-singh-460355275)
 
 ---
