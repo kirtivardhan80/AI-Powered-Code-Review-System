@@ -228,6 +228,6 @@ motor
 ## 👨‍💻 Author
 
 **Kirti Vardhan Singh**  
-[GitHub]([https://github.com/your-username](https://github.com/kirtivardhan80)) | [LinkedIn](www.linkedin.com/in/kirti-vardhan-singh-460355275)
+[GitHub]([https://github.com/your-username](https://github.com/kirtivardhan80) | [LinkedIn](www.linkedin.com/in/kirti-vardhan-singh-460355275)
 
 ---
